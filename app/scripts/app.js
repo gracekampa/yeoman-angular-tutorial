@@ -34,6 +34,11 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/library', {
+        templateUrl: 'views/library.html',
+        controller: 'LibraryCtrl',
+        controllerAs: 'library'
+      })
       .otherwise({
         redirectTo: '/home'
       });
