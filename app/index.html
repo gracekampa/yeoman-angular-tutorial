@@ -36,13 +36,20 @@
             <a class="navbar-brand" href="#/">yeomanAngularTutorial</a>
           </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="MainCtrl as main">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/contact">Contact</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('home') != -1}"><a href="#/home">Home</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('about') != -1}"><a ng-href="#/about">About</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('contact') != -1}"><a ng-href="#/contact">Contact</a></li>
             </ul>
+
+            <!--<ul class="nav navbar-nav">-->
+              <!--<li class="active"><a href="#/">Home</a></li>-->
+              <!--<li><a ng-href="#/about">About</a></li>-->
+              <!--<li><a ng-href="#/contact">Contact</a></li>-->
+            <!--</ul>-->
+
           </div>
         </div>
       </div>
