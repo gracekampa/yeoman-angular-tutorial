@@ -18,8 +18,8 @@
         </div>
         <div class="form-group">
           <label for="newBookAuthor">Author</label>
-          <!--<input type="text" class="form-control" id="newBookAuthors" ng-model="newBook.authors" required>-->
-          <textarea id="newBookAuthor" ng-model="newBook.author" class="form-control" placeholder="First Last"></textarea>
+          <input type="text" class="form-control" id="newBookAuthor" ng-model="newBook.author" required>
+          <!--<textarea id="newBookAuthor" ng-model="newBook.author" class="form-control" placeholder="First Last"></textarea>-->
         </div>
         <div class="form-group">
           <label for="newBookPages">Pages</label>
@@ -41,6 +41,7 @@
     <div class="col-lg-6">
       <h2>All books:</h2>
       <div ng-repeat="book in books | orderBy: 'publishDate'">
+        <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
         <p>{{book.title}}</p>
         <cite>by {{book.author}}</cite>
         <p>Pages: {{book.pages}}</p>
@@ -51,13 +52,15 @@
 
     <div class="col-lg-6 pull-right">
       <h2>Authors:</h2>
-      <!--<div ng-repeat="book in books">-->
-        <!--<div ng-repeat="author in book.authors | orderBy: 'author'">-->
-          <!--<cite>{{author}}</cite>-->
-        <!--</div>-->
-        <!--<hr>-->
-      <!--</div>-->
-      <div>{{authorsList}}</div>
+
+      <div ng-repeat="author in authorsList">
+        <cite>{{author[0].author}} ({{author.length}} available)</cite>
+        <div ng-repeat="book in author | orderBy: 'title'">
+          <p>{{book.title}}</p>
+        </div>
+        <p>Book Count: {{author.length}}</p>
+        <hr>
+      </div>
     </div>
   </div>
 </div>

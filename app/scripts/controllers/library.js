@@ -17,6 +17,11 @@ angular.module('yeomanAngularTutorialApp')
        pages: 180,
        publishDate: new Date(1925, 3, 10)
       },
+      {title: 'This Side of Paradise',
+        author: 'F. Scott Fitzgerald',
+        pages: 305,
+        publishDate: new Date(1920, 2, 26)
+      },
       {title: 'Heart of Darkness',
         author: 'Joseph Conrad',
         pages: 72,
@@ -66,6 +71,35 @@ angular.module('yeomanAngularTutorialApp')
     ];
 
     $scope.authorsList = [];
+    $scope.isCreating = false;
+    $scope.startCreating = startCreating;
+    $scope.cancelCreating = cancelCreating;
+    $scope.createBook = createBook;
+    $scope.resetCreateForm = resetCreateForm;
+    $scope.deleteBook = deleteBook;
+    $scope.setAuthorsList = setAuthorsList;
+
+    function init() {
+      setAuthorsList();
+    };
+    init();
+
+    function setAuthorsList() {
+      $scope.authorsList =_.sortBy($scope.books, 'author');
+      $scope.authorsList =_.groupBy($scope.authorsList, 'author');
+      console.log("Authors List", $scope.authorsList);
+      //_($scope.authorsList).map((v, k) => [k, v]).sortBy(0).fromPairs().value()
+      console.log('test set authors');
+
+      // $scope.authorsList = _.keys($scope.authorsList).sort();
+
+
+    }
+
+    $scope.$watch('books', function(value) {
+      setAuthorsList(value);
+      console.log('test watch');
+    }, true);
 
 
     // for each (book in $scope.books) {
@@ -85,11 +119,6 @@ angular.module('yeomanAngularTutorialApp')
 
     //$scope.authorsList = _.orderBy(authorsList, )
 
-    $scope.isCreating = false;
-    $scope.startCreating = startCreating;
-    $scope.cancelCreating = cancelCreating;
-    $scope.createBook = createBook;
-    $scope.resetCreateForm = resetCreateForm;
 
     function startCreating() {
       $scope.isCreating = true;
@@ -112,6 +141,13 @@ angular.module('yeomanAngularTutorialApp')
       newBook.id = $scope.books.length;
       $scope.books.push(newBook);
       resetCreateForm();
+    }
+
+    function deleteBook(book) {
+      _.remove($scope.books, function(b) {
+        return b.title === book.title;
+        // return b.id === book.id;
+      })
     }
 
   });
