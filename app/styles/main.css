@@ -9,8 +9,14 @@ body {
   padding: 0;
 }
 
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus {
   color: #fbfbfb;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #52a3ba;
   font-weight: bold;
 }
 
@@ -30,6 +36,22 @@ body {
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: #8ac1d0;
   color: #fafbfc;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background-color: #8ac1d0;
+}
+
+.navbar-default .navbar-toggle:focus {
+  background-color: #a7ccd5;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #fff;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
