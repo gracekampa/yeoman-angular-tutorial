@@ -1,9 +1,13 @@
 body {
-  background: #fbfbfb;
+  background: #f8f8f8;
   color: #333333;
   font-family: 'Open Sans';
 }
 
+a,
+button {
+  outline: none !important;
+}
 
 h1 {
   font-weight: bold;
@@ -31,17 +35,31 @@ h2 {
   background-color: #e0cd78;
   color: #fafbfc;
   box-shadow: 0 4px 8px 0 rgba(112, 187, 183, 0.2), 0 6px 20px 0 rgba(112, 187, 183, 0.19);
-  border-radius: 50px;
+  border-radius: 5px;
   margin-top: -30px;
   text-decoration: none;
-  outline: 0;
 }
 
 .create-book-btn:hover {
   background-color: #d6be4f;
   color: #fafbfc;
   text-decoration: none;
-  outline: 0;
+}
+
+.create-book-modal-btn,
+.create-book-modal-btn:active,
+.create-book-modal-btn:focus {
+  width: 200px;
+  background-color: #e0cd78;
+  border-color: #e0cd78;
+  color: #fafbfc;
+  border-radius: 5px;
+}
+
+.create-book-modal-btn:hover {
+  background-color: #d6be4f;
+  border-color: #d6be4f;
+  color: #fafbfc;
 }
 
 .books {
@@ -50,7 +68,6 @@ h2 {
   margin-bottom: 20px;
   background-position: 0;
   background-size: cover;
-  box-shadow: 0 4px 8px 0 rgba(112, 187, 183, 0.2), 0 6px 20px 0 rgba(112, 187, 183, 0.19);
 
 }
 
@@ -78,11 +95,10 @@ h2 {
 
 .authors {
   width: 400px;
-  background-color: #f8f8f8;
+  background-color: white;
   padding: 10px 15px 20px 20px;
   border-radius: 5px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(112, 187, 183, 0.2), 0 6px 20px 0 rgba(112, 187, 183, 0.19);
 }
 
 .authors-title {
