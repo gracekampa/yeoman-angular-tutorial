@@ -16,44 +16,52 @@ h1 {
 h2 {
   text-transform: uppercase;
   font-weight: 100;
+  margin-bottom: 26px;
+  display: inline-block;
 }
 
 .welcome-header {
   margin-bottom: 25px;
+  margin-left: 30px;
 }
 
 .subtitle {
   display: inline;
 }
 
-.create-book-btn,
-.create-book-btn:active,
-.create-book-btn:focus {
-  float: right;
-  width: 200px;
-  height: 50px;
+.btn {
+  width: 170px;
+  height: 35px;
   background-color: #e0cd78;
+  border-color: #e0cd78;
   color: #fafbfc;
-  box-shadow: 0 4px 8px 0 rgba(112, 187, 183, 0.2), 0 6px 20px 0 rgba(112, 187, 183, 0.19);
   border-radius: 5px;
-  margin-top: -30px;
-  text-decoration: none;
 }
 
-.create-book-btn:hover {
+.btn:hover {
   background-color: #d6be4f;
   color: #fafbfc;
   text-decoration: none;
 }
 
-.create-book-modal-btn,
-.create-book-modal-btn:active,
-.create-book-modal-btn:focus {
-  width: 200px;
+.btn,
+.btn:active,
+.btn:focus {
   background-color: #e0cd78;
-  border-color: #e0cd78;
   color: #fafbfc;
   border-radius: 5px;
+  text-decoration: none;
+}
+
+.create-book-btn {
+  float: right;
+  margin-top: -30px;
+  margin-right: 150px;
+}
+
+.sort-btn {
+  margin-bottom: 13px;
+  margin-left: 15px;
 }
 
 .create-book-modal-btn:hover {
@@ -62,20 +70,40 @@ h2 {
   color: #fafbfc;
 }
 
+.editBook:hover {
+  cursor: pointer;
+  color: #d6be4f;
+}
+
+.all-books-header {
+  margin-left: 30px;
+}
+
 .books {
   width: 400px;
   border-radius: 5px;
   margin-bottom: 20px;
   background-position: 0;
   background-size: cover;
+  display: inline-block;
+}
 
+.books-reorder {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 50px;
+}
+
+.books-reorder > span {
+  display: block;
+  font-size: 25px;
 }
 
 .books-text {
   width: 400px;
   padding: 10px 15px 20px 20px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255,.9);
 }
 
@@ -118,6 +146,30 @@ h2 {
   float: right;
   font-weight: normal;
 }
+
+.star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.star {
+  padding: 1px;
+  color: #ddd;
+  font-size: 20px;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.star.filled {
+   color: #e0cd78;
+}
+
+.readonly .star.filled {
+   color: #333333;
+}
+
 
 @media (min-width: 1100px) {
   .container{

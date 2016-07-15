@@ -9,21 +9,36 @@
       <span class="glyphicon glyphicon-plus"></span>
       Add a book!
     </button>
-
   </span>
+
 </div>
 
 
   <div class="row">
     <div class="col-lg-6">
-      <h2>All books</h2>
-      <div class="books" ng-repeat="book in books | orderBy: 'publishDate'" ng-style="{'background-image':'url('+book.cover+')'}">
-        <div class="books-text">
-          <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
-          <p class="books-title">{{book.title}}</p>
-          <p class="books-author">by {{book.author}}</p>
-          <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
-          <span class="books-pages">Pages: {{book.pages}}</span>
+      <div class="all-books-header">
+        <h2>All books</h2>
+        <button class="btn sort-btn" ng-disabled="isSorted" ng-click="sortBooks()">Sort by Publish Date</button>
+      </div>
+      <div ng-repeat="book in sortedBooksList | orderBy: 'order'">
+        <div class="books-reorder">
+          <span ng-click="book.order != 0 && moveOrder(book, true)"
+                ng-class="{'text-muted': book.order == 0}" class="glyphicon glyphicon-chevron-up"></span>
+          <span ng-click="book.order <= sortedBooksList.length - 1 && moveOrder(book, false)"
+                ng-class="{'text-muted': book.order >= sortedBooksList.length - 1}" class="glyphicon glyphicon-chevron-down"></span>
+        </div>
+        <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
+          <div class="books-text">
+            <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
+            <p class="books-title">
+              {{book.title}} {{book.order}}
+              <span ng-click="selectBook(book)" data-toggle="modal" data-target="#editBook" class="glyphicon glyphicon-pencil editBook"></span>
+            </p>
+            <p class="books-author">by {{book.author}}</p>
+            <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
+            <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
+            <span class="books-pages">Pages: {{book.pages}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -59,7 +74,7 @@
         <form class="create-form" role="form" ng-submit="createBook(newBook)">
           <div class="form-group">
             <label for="newBookTitle">Title</label>
-            <input type="text" class="form-control" id="newBookTitle" ng-model="newBook.title" required>
+            <input name="title" type="text" class="form-control" id="newBookTitle" ng-model="newBook.title" required>
           </div>
           <div class="form-group">
             <label for="newBookAuthor">Author</label>
@@ -71,14 +86,63 @@
           </div>
           <div class="form-group">
             <label for="newBookPublishDate">Publish Date</label>
-            <input id="newBookPublishDate" ng-model="newBook.publishDate" class="form-control" type="date" required>
+            <input id="newBookPublishDate" ng-model="newBook.publishDate" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
           </div>
           <div class="form-group">
             <label for="newBookCover">Cover Image URL</label>
             <input type="url" class="form-control" id="newBookCover" ng-model="newBook.cover" required>
           </div>
+          <div class="form-group">
+            <label for="newBookRating">Rating</label>
+            <div rating-star-directive rating="{{book.rating}}" id="newBookRating" ng-model="rating" max="5" on-rating-select="rateBook(rating)"></div>
+          </div>
 
           <button type="submit" class="btn btn-lg create-book-modal-btn">Create</button>
+        </form>
+        <br>
+        <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit book modal -->
+
+<div id="editBook" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Book</h4>
+      </div>
+      <div class="modal-body">
+        <form class="create-form" role="form" ng-submit="editBook(book)">
+          <div class="form-group">
+            <label for="bookTitle">Title</label>
+            <input name="title" type="text" class="form-control" id="bookTitle" ng-model="book.title" required>
+          </div>
+          <div class="form-group">
+            <label for="bookAuthor">Author</label>
+            <input type="text" class="form-control" id="bookAuthor" ng-model="book.author" required>
+          </div>
+          <div class="form-group">
+            <label for="bookPages">Pages</label>
+            <input type="number" class="form-control" id="bookPages" ng-model="book.pages" required>
+          </div>
+          <div class="form-group">
+            <label for="bookPublishDate">Publish Date</label>
+            <input id="bookPublishDate" ng-model="book.publishDate" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+          </div>
+          <div class="form-group">
+            <label for="bookCover">Cover Image URL</label>
+            <input type="url" class="form-control" id="bookCover" ng-model="book.cover" required>
+          </div>
+          <div class="form-group">
+            <label for="newBookRating">Rating</label>
+            <rating-star-directive id="bookRating" ng-model="rating" on-rating-select="rateBook(rating)"></rating-star-directive>
+          </div>
+
+          <button type="submit" class="btn btn-lg create-book-modal-btn">Save</button>
         </form>
         <br>
         <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
