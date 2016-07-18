@@ -64,7 +64,7 @@ h2 {
   margin-left: 15px;
 }
 
-.create-book-modal-btn:hover {
+.modal-btn:hover {
   background-color: #d6be4f;
   border-color: #d6be4f;
   color: #fafbfc;

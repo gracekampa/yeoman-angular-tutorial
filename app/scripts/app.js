@@ -39,6 +39,16 @@ angular
         controller: 'LibraryCtrl',
         controllerAs: 'library'
       })
+      .when('/bookDetails', {
+        templateUrl: 'views/bookdetails.html',
+        controller: 'BookdetailsCtrl',
+        controllerAs: 'bookDetails'
+      })
+      .when('/bookForms', {
+        templateUrl: 'views/bookforms.html',
+        controller: 'BookformsCtrl',
+        controllerAs: 'bookForms'
+      })
       .otherwise({
         redirectTo: '/home'
       });
