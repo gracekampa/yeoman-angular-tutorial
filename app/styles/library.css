@@ -70,13 +70,12 @@ h2 {
   color: #fafbfc;
 }
 
-.editBook:hover {
-  cursor: pointer;
-  color: #d6be4f;
-}
-
 .all-books-header {
   margin-left: 30px;
+}
+
+a .books {
+  color: #333333;
 }
 
 .books {
@@ -118,7 +117,9 @@ h2 {
 }
 
 .books-pages {
-  float: right;
+  /*float: right;*/
+  margin-right: 40px;
+  display: block;
 }
 
 .authors {
@@ -170,6 +171,133 @@ h2 {
    color: #333333;
 }
 
+/**
+ ** DETAILS STYLING
+ **/
+
+.details-title {
+  margin-left: -15px;
+}
+
+.details-create-book-btn {
+  float: right;
+  margin-top: 25px;
+  margin-right: 300px;
+}
+
+.book-details {
+  height: 400px;
+}
+
+.book-details-cover {
+  background-position-x: center;
+  background-position-y: center;
+  /*background-position-y: 87%;*/
+  /*background-size: cover;*/
+  background-size: 150% auto;
+  width: 300px;
+  /*animation-name: cover-animation;*/
+  /*animation-duration: 20s;*/
+
+  /*-webkit-animation-name: MOVE-BG;*/
+  /*-webkit-animation-duration: 10s;*/
+  /*-webkit-animation-timing-function: linear;*/
+  /*-webkit-animation-iteration-count: infinite;*/
+}
+
+/*@-webkit-keyframes MOVE-BG {*/
+  /*from {*/
+    /*-webkit-transform: translateX(0);*/
+  /*}*/
+  /*to {*/
+    /*-webkit-transform: translateX(-550px);*/
+  /*}*/
+/*}*/
+
+@keyframes cover-animation {
+  from {
+    background-position-y: 87%;
+    background-position-x: center;
+  }
+  to {
+    background-position-y: 25%;
+    background-position-x: 0%;
+  }
+}
+
+.book-details-text {
+  width: 550px;
+  padding: 10px 15px 20px 20px;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.book-details-text-title {
+  margin: 15px 0 0 0;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.book-details-text-author {
+  font-weight: bolder;
+  color: #e0cd78;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.book-details-rating {
+  margin-bottom: 40px;
+  bottom: 0;
+  position: absolute;
+}
+
+.book-details-rating ul {
+  padding-top: 25px;
+}
+
+.book-details-rating li {
+  font-size: 25px;
+}
+
+.edit-book, a .edit-book {
+  margin-right: 40px;
+  font-size: 20px;
+  color: #333333;
+}
+
+.edit-book:hover, a .edit-book:hover {
+  cursor: pointer;
+  color: #d6be4f;
+}
+
+.book-details-footer {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  height: 30px;
+  width: inherit;
+  margin-bottom: 20px;
+}
+
+/**
+ ** FORMS STYLING
+ **/
+
+.form-header {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-btn {
+  /*float: right;*/
+}
+
+.modal-btn-cancel {
+  background-color: red;
+}
+
+/**
+ ** MOBILE STYLING
+ **/
 
 @media (min-width: 1100px) {
   .container{
@@ -186,6 +314,21 @@ h2 {
 
   .create-book-btn {
     margin-top: 20px;
+  }
+
+  .book-details-cover {
+    width: 550px;
+    height: 300px;
+    background-position-x: center;
+    background-position-y: center;
+    /*background-size: cover;*/
+    background-size: 100% auto;
+  }
+
+  .details-create-book-btn {
+    margin-top: 0;
+    margin-bottom: 25px;
+    margin-left: -15px;
   }
 }
 

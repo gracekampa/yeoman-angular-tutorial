@@ -8,7 +8,7 @@
  * Service in the yeomanAngularTutorialApp.
  */
 angular.module('yeomanAngularTutorialApp')
-  .service('libraryService', function ($http, $q) {
+  .service('libraryService', function () {
     var books = [
       { title: 'The Great Gatsby',
         author: 'F. Scott Fitzgerald',
@@ -109,8 +109,8 @@ angular.module('yeomanAngularTutorialApp')
       books.push(newBook);
     };
 
-    this.findBook = function(book) {
-      return _.find(books, { 'id': book.id })
+    this.findBook = function(bookId) {
+      return _.find(books, function(o) { return o.id == bookId; });
     };
 
     this.deleteBook = function(book) {
@@ -123,7 +123,7 @@ angular.module('yeomanAngularTutorialApp')
       var originalBookIndex = _.findIndex(books, { 'id': book.id });
 
       books[originalBookIndex] = book;
-      
+
     };
 
   });

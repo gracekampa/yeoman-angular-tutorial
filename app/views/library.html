@@ -4,12 +4,19 @@
     Feel free to browse, create, or delete!
   </p>
 
-  <span class="create-book">
-    <button type="button" class="btn btn-link create-book-btn" data-toggle="modal" data-target="#createBook">
+  <!--<span class="create-book">-->
+    <!--<button type="button" class="btn btn-link create-book-btn" data-toggle="modal" data-target="#createBook">-->
+      <!--<span class="glyphicon glyphicon-plus"></span>-->
+      <!--Add a book!-->
+    <!--</button>-->
+  <!--</span>-->
+
+  <a href="#/bookForms" class="create-book">
+    <button type="button" class="btn btn-link create-book-btn">
       <span class="glyphicon glyphicon-plus"></span>
       Add a book!
     </button>
-  </span>
+  </a>
 
 </div>
 
@@ -27,19 +34,21 @@
           <span ng-click="book.order <= sortedBooksList.length - 1 && moveOrder(book, false)"
                 ng-class="{'text-muted': book.order >= sortedBooksList.length - 1}" class="glyphicon glyphicon-chevron-down"></span>
         </div>
-        <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
-          <div class="books-text">
-            <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
-            <p class="books-title">
-              {{book.title}} {{book.order}}
-              <span ng-click="selectBook(book)" data-toggle="modal" data-target="#editBook" class="glyphicon glyphicon-pencil editBook"></span>
-            </p>
-            <p class="books-author">by {{book.author}}</p>
-            <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
-            <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
-            <span class="books-pages">Pages: {{book.pages}}</span>
+        <a href="#/bookDetails/{{book.id}}">
+          <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
+            <div class="books-text">
+              <!--<button ng-click="deleteBook(book)" type="button" class="close">&times;</button>-->
+              <p class="books-title">
+                {{book.title}} {{book.order}}
+                <!--<span ng-click="selectBook(book)" data-toggle="modal" data-target="#editBook" class="glyphicon glyphicon-pencil editBook"></span>-->
+              </p>
+              <p class="books-author">by {{book.author}}</p>
+              <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive>
+              <!--<span class="books-publish-date">Published: {{book.publishDate | date}}</span>-->
+              <!--<span class="books-pages">Pages: {{book.pages}}</span>-->
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 

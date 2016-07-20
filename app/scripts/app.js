@@ -44,7 +44,17 @@ angular
         controller: 'BookdetailsCtrl',
         controllerAs: 'bookDetails'
       })
+      .when('/bookDetails/:bookId', {
+        templateUrl: 'views/bookdetails.html',
+        controller: 'BookdetailsCtrl',
+        controllerAs: 'bookDetails'
+      })
       .when('/bookForms', {
+        templateUrl: 'views/bookforms.html',
+        controller: 'BookformsCtrl',
+        controllerAs: 'bookForms'
+      })
+      .when('/bookForms/:bookId', {
         templateUrl: 'views/bookforms.html',
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'

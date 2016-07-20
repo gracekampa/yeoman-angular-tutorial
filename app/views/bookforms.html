@@ -1,1 +1,83 @@
-<p>This is the bookForms view.</p>
+<!-- EDIT BOOK FORM -->
+<div ng-show="isEditForm" class="form-content">
+  <div class="form-header">
+    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+    <h1 class="modal-title">Edit Book</h1>
+  </div>
+  <div class="form-body">
+    <form class="create-form" role="form" ng-submit="editBook(book)">
+      <div class="form-group">
+        <label for="bookTitle">Title</label>
+        <input name="title" type="text" class="form-control" id="bookTitle" ng-model="book.title" required>
+      </div>
+      <div class="form-group">
+        <label for="bookAuthor">Author</label>
+        <input type="text" class="form-control" id="bookAuthor" ng-model="book.author" required>
+      </div>
+      <div class="form-group">
+        <label for="bookPages">Pages</label>
+        <input type="number" class="form-control" id="bookPages" ng-model="book.pages" required>
+      </div>
+      <div class="form-group">
+        <label for="bookPublishDate">Publish Date</label>
+        <input id="bookPublishDate" ng-model="book.publishDate" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+      </div>
+      <div class="form-group">
+        <label for="bookCover">Cover Image URL</label>
+        <input type="url" class="form-control" id="bookCover" ng-model="book.cover" required>
+      </div>
+      <div class="form-group">
+        <label for="bookRating">Rating</label>
+        <rating-star-directive id="bookRating" ng-model="rating" on-rating-select="rateBook(rating)"></rating-star-directive>
+      </div>
+
+      <!--<a href="#/bookDetails/{{book.id}}"><button type="submit" class="btn modal-btn">Save</button></a>-->
+      <button type="submit" class="btn modal-btn">Save</button>
+    </form>
+    <br>
+    <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+  </div>
+</div>
+
+<!-- CREATE BOOK FORM -->
+
+<div ng-show="!isEditForm" class="form-content">
+  <div class="form-header">
+    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+    <h1 class="modal-title">Add a New Book</h1>
+  </div>
+  <div class="form-body">
+    <form class="create-form" role="form" ng-cancel="" ng-submit="createBook(newBook)">
+      <div class="form-group">
+        <label for="newBookTitle">Title</label>
+        <input name="title" type="text" class="form-control" id="newBookTitle" ng-model="newBook.title" required>
+      </div>
+      <div class="form-group">
+        <label for="bookAuthor">Author</label>
+        <input type="text" class="form-control" id="newBookAuthor" ng-model="newBook.author" required>
+      </div>
+      <div class="form-group">
+        <label for="newBookPages">Pages</label>
+        <input type="number" class="form-control" id="newBookPages" ng-model="newBook.pages" required>
+      </div>
+      <div class="form-group">
+        <label for="newBookPublishDate">Publish Date</label>
+        <input id="newBookPublishDate" ng-model="newBook.publishDate" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+      </div>
+      <div class="form-group">
+        <label for="newBookCover">Cover Image URL</label>
+        <input type="url" class="form-control" id="newBookCover" ng-model="newBook.cover" required>
+      </div>
+      <div class="form-group">
+        <label for="newBookRating">Rating</label>
+        <div rating-star-directive rating="{{book.rating}}" id="newBookRating" ng-model="rating" max="5" on-rating-select="rateBook(rating)"></div>
+      </div>
+
+      <!--<a href="#/library"><button type="submit" class="btn modal-btn">Create</button></a>-->
+      <!--<button type="cancel" class="btn modal-btn modal-btn-cancel">Cancel</button>-->
+      <button type="submit" class="btn modal-btn form-btn">Create</button>
+    </form>
+    <br>
+    <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+  </div>
+</div>

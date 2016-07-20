@@ -114,23 +114,23 @@ angular.module('yeomanAngularTutorialApp')
       }
     }
 
-    function createBook(newBook) {
-      newBook.rating = $scope.rating;
-      newBook.order = $scope.books.length;
-      newBook.id = new Date().getUTCMilliseconds();
-
-      libraryService.createBook(newBook);
-
-      $('#createBook').modal('hide');
-      resetCreateForm();
-
-      if ($scope.isSorted) {
-        sortBooks();
-      }
-      else {
-        $scope.isSorted = false;
-      }
-    }
+    // function createBook(newBook) {
+    //   newBook.rating = $scope.rating;
+    //   newBook.order = $scope.books.length;
+    //   newBook.id = new Date().getUTCMilliseconds();
+    //
+    //   libraryService.createBook(newBook);
+    //
+    //   $('#createBook').modal('hide');
+    //   resetCreateForm();
+    //
+    //   if ($scope.isSorted) {
+    //     sortBooks();
+    //   }
+    //   else {
+    //     $scope.isSorted = false;
+    //   }
+    // }
 
     function deleteBook(book) {
       var deletedBookOrder = book.order;
@@ -164,23 +164,20 @@ angular.module('yeomanAngularTutorialApp')
       $scope.rating = $scope.book.rating;
     }
 
-    function editBook(book) {
-      book.rating = $scope.rating;
-
-      libraryService.editBook(book);
-
-      if ($scope.isSorted) {
-        sortBooks();
-      }
-      else {
-        $scope.isSorted = false;
-      }
-
-      $('#editBook').modal('hide');
-      resetEditForm();
-    }
-
-    // bugs I've found:
-    // - save and edit button styling
+    // function editBook(book) {
+    //   book.rating = $scope.rating;
+    //
+    //   libraryService.editBook(book);
+    //
+    //   if ($scope.isSorted) {
+    //     sortBooks();
+    //   }
+    //   else {
+    //     $scope.isSorted = false;
+    //   }
+    //
+    //   $('#editBook').modal('hide');
+    //   resetEditForm();
+    // }
 
   });
