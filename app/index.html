@@ -44,7 +44,13 @@
               <li ng-class="{'active' : main.$location.url().indexOf('home') != -1}"><a href="#/home">Home</a></li>
               <li ng-class="{'active' : main.$location.url().indexOf('about') != -1}"><a ng-href="#/about">About</a></li>
               <li ng-class="{'active' : main.$location.url().indexOf('contact') != -1}"><a ng-href="#/contact">Contact</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('library') != -1}"><a ng-href="#/library">Library</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('books') != -1}"><a ng-href="#/books">Library</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('bookForms') != -1}">
+                <a ng-href="#/bookForms">
+                  <span class="glyphicon glyphicon-plus"></span>
+                  Add a book!
+                </a>
+              </li>
             </ul>
 
           </div>

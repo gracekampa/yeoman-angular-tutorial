@@ -48,7 +48,7 @@ angular.module('yeomanAngularTutorialApp')
         $scope.isSorted = false;
       }
 
-      $location.url("/bookDetails/" + book.id);
+      $location.url("/book/edit/" + book.id);
 
       // $('#editBook').modal('hide');
       // resetEditForm();
@@ -73,7 +73,7 @@ angular.module('yeomanAngularTutorialApp')
         $scope.isSorted = false;
       }
 
-      $location.url("/bookDetails/" + newBook.id);
+      $location.url("/book/edit/" + newBook.id);
     }
 
   });

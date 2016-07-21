@@ -34,17 +34,17 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
-      .when('/library', {
+      .when('/books', {
         templateUrl: 'views/library.html',
         controller: 'LibraryCtrl',
         controllerAs: 'library'
       })
-      .when('/bookDetails', {
+      .when('/book', {
         templateUrl: 'views/bookdetails.html',
         controller: 'BookdetailsCtrl',
         controllerAs: 'bookDetails'
       })
-      .when('/bookDetails/:bookId', {
+      .when('/book/:bookId', {
         templateUrl: 'views/bookdetails.html',
         controller: 'BookdetailsCtrl',
         controllerAs: 'bookDetails'
@@ -54,7 +54,7 @@ angular
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'
       })
-      .when('/bookForms/:bookId', {
+      .when('/book/edit/:bookId', {
         templateUrl: 'views/bookforms.html',
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'

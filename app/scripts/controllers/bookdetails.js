@@ -26,13 +26,13 @@ angular.module('yeomanAngularTutorialApp')
       // }
 
       libraryService.deleteBook(book);
-      $location.url("/library");
+      $location.url("/books");
 
     }
 
     function selectBook(book) {
 
-      $location.url("/bookForms/" + book.id);
+      $location.url("/book/add/" + book.id);
 
     }
   });

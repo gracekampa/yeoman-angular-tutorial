@@ -34,7 +34,7 @@
           <span ng-click="book.order <= sortedBooksList.length - 1 && moveOrder(book, false)"
                 ng-class="{'text-muted': book.order >= sortedBooksList.length - 1}" class="glyphicon glyphicon-chevron-down"></span>
         </div>
-        <a href="#/bookDetails/{{book.id}}">
+        <a href="#/book/{{book.id}}">
           <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
             <div class="books-text">
               <!--<button ng-click="deleteBook(book)" type="button" class="close">&times;</button>-->
