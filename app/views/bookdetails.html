@@ -1,30 +1,32 @@
 <div class="container">
-  <h2 class="details-title">Details</h2>
-  <a href="#/bookForms" class="create-book">
-    <button type="button" class="btn btn-link details-create-book-btn">
-      <span class="glyphicon glyphicon-plus"></span>
-      Add a book!
-    </button>
-  </a>
+  <h2 class="details-title">{{book.title}} / Details</h2>
+  <!--<a href="#/bookForms" class="create-book">-->
+    <!--<button type="button" class="btn btn-link details-create-book-btn">-->
+      <!--<span class="glyphicon glyphicon-plus"></span>-->
+      <!--Add a book!-->
+    <!--</button>-->
+  <!--</a>-->
   <div class="row">
-    <div class="col-sm-6 book-details book-details-cover" ng-style="{'background-image':'url('+book.cover+')'}">
+    <div class="details">
+      <div class="col-sm-6 book-details book-details-cover" ng-style="{'background-image':'url('+book.cover+')'}">
 
-    </div>
-    <div class="col-sm-6 book-details book-details-text">
-      <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
-      <p class="book-details-text-title">
-        {{book.title}}
-        <a href="#/book/edit/{{book.id}}"><span class="glyphicon glyphicon-pencil edit-book"></span></a>
-      </p>
-      <p class="book-details-text-author">by {{book.author}}</p>
-      <br>
-      <p>The Great Gatsby is a story told by Nick Carraway, who was once Gatsby's neighbor, and he tells the story sometime after 1922,
-        when the incidents that fill the book take place. As the story opens, Nick has just moved from the Midwest to West Egg, Long Island,
-        seeking his fortune as a bond salesman.</p>
-      <rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
-      <div class="book-details-footer">
-        <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
-        <span class="books-pages">Pages: {{book.pages}}</span>
+      </div>
+      <div class="col-sm-6 book-details book-details-text">
+        <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
+        <p class="book-details-text-title">
+          {{book.title}}
+          <a href="#/book/edit/{{book.id}}"><span class="glyphicon glyphicon-pencil edit-book"></span></a>
+        </p>
+        <p class="book-details-text-author">by {{book.author}}</p>
+        <br>
+        <p>The Great Gatsby is a story told by Nick Carraway, who was once Gatsby's neighbor, and he tells the story sometime after 1922,
+          when the incidents that fill the book take place. As the story opens, Nick has just moved from the Midwest to West Egg, Long Island,
+          seeking his fortune as a bond salesman.</p>
+        <rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
+        <div class="book-details-footer">
+          <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
+          <span class="books-pages">Pages: {{book.pages}}</span>
+        </div>
       </div>
     </div>
     <!--<div class="col-sm-2">-->

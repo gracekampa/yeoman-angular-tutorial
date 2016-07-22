@@ -176,13 +176,22 @@ a .books {
  **/
 
 .details-title {
-  margin-left: -15px;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 70px;
+  color: #d2d2d2;
 }
 
 .details-create-book-btn {
   float: right;
   margin-top: 25px;
   margin-right: 300px;
+}
+
+.details {
+  margin: 0 auto;
+  width: 850px;
+  height: 400px;
 }
 
 .book-details {
