@@ -304,6 +304,14 @@ a .books {
   background-color: red;
 }
 
+.modal-title {
+  font-size: 30px;
+}
+
+label {
+  display: block;
+}
+
 /**
  ** MOBILE STYLING
  **/

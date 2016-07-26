@@ -14,7 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/library.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
   <body ng-app="yeomanAngularTutorialApp">
@@ -35,18 +35,26 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">yeomanAngularTutorial</a>
+            <a class="navbar-brand" href="#/">LIBRARY<span>APP</span></a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="MainCtrl as main">
 
             <ul class="nav navbar-nav">
               <li ng-class="{'active' : main.$location.url().indexOf('home') != -1}"><a href="#/home">Home</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('about') != -1}"><a ng-href="#/about">About</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('contact') != -1}"><a ng-href="#/contact">Contact</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('books') != -1}"><a ng-href="#/books">Library</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('bookForms') != -1}">
-                <a ng-href="#/bookForms">
+              <li ng-class="{'active' : main.$location.url().indexOf('books') != -1}"><a ng-href="#/books">Books</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('about') != -1}"><a ng-href="#/about">Authors</a></li>
+              <!--<li ng-class="{'active' : main.$location.url().indexOf('bookForms') != -1}">-->
+                <!--<a ng-href="#/bookForms">-->
+                  <!--<span class="glyphicon glyphicon-plus"></span>-->
+                  <!--New Book-->
+                <!--</a>-->
+              <!--</li>-->
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="new-book">
+                <a class="new-book" ng-href="#/bookForms">
                   <span class="glyphicon glyphicon-plus"></span>
                   New Book
                 </a>
@@ -54,6 +62,7 @@
             </ul>
 
           </div>
+
         </div>
       </div>
     </div>

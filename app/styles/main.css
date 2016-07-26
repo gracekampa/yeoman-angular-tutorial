@@ -11,12 +11,17 @@ body {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:focus {
-  color: #fbfbfb;
-  font-weight: bold;
+  color: #52a3ba;
+  font-weight: 300;
+  font-size: 25px;
 }
 
 .navbar-default .navbar-brand:hover {
-  color: #52a3ba;
+  color: #fbfbfb;
+  /*font-weight: 700;*/
+}
+
+.navbar-brand span {
   font-weight: bold;
 }
 
@@ -28,6 +33,7 @@ body {
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover {
   color: #fafbfc;
+  text-transform: uppercase;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -36,6 +42,17 @@ body {
 .navbar-default .navbar-nav > .active > a:focus {
   background-color: #8ac1d0;
   color: #fafbfc;
+  /*font-weight: 700;*/
+}
+
+.new-book, .new-book a {
+  color: #52a3ba !important;
+  font-weight: 700;
+}
+
+.new-book:hover, .new-book a:hover {
+  background-color: #a7ccd5 !important;
+  color: #fafbfc !important;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
