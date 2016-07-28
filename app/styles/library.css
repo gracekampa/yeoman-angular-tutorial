@@ -1,7 +1,7 @@
 body {
   background: #f8f8f8;
   color: #333333;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Arial;
 }
 
 a,
@@ -35,7 +35,7 @@ h2 {
   background-color: #e0cd78;
   border-color: #e0cd78;
   color: #fafbfc;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 .btn:hover {
@@ -49,7 +49,7 @@ h2 {
 .btn:focus {
   background-color: #e0cd78;
   color: #fafbfc;
-  border-radius: 5px;
+  border-radius: 0px;
   text-decoration: none;
 }
 
@@ -80,7 +80,7 @@ a .books {
 
 .books {
   width: 400px;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   margin-bottom: 20px;
   background-position: 0;
   background-size: cover;
@@ -101,7 +101,7 @@ a .books {
 .books-text {
   width: 400px;
   padding: 10px 15px 20px 20px;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   /*margin-bottom: 20px;*/
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255,.9);
 }
@@ -126,7 +126,7 @@ a .books {
   width: 400px;
   background-color: white;
   padding: 10px 15px 20px 20px;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   margin-bottom: 20px;
 }
 
@@ -244,7 +244,7 @@ a .books {
 .book-details-text-title {
   margin: 15px 0 0 0;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .book-details-text-author {
