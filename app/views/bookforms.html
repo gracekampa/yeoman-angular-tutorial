@@ -1,5 +1,5 @@
 <!-- EDIT BOOK FORM -->
-<div ng-show="isEditForm" class="form-content">
+<div ng-show="isEditForm" class="form-content book-form">
   <div class="form-header">
     <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
     <h1 class="modal-title">Edit Book</h1>
@@ -31,7 +31,7 @@
         <rating-star-directive id="bookRating" ng-model="rating" on-rating-select="rateBook(rating)"></rating-star-directive>
       </div>
 
-      <!--<a href="#/bookDetails/{{book.id}}"><button type="submit" class="btn modal-btn">Save</button></a>-->
+      <button ng-click="cancelForm()" type="reset" class="btn form-btn-cancel">Cancel</button>
       <button type="submit" class="btn modal-btn">Save</button>
     </form>
     <br>
@@ -41,10 +41,9 @@
 
 <!-- CREATE BOOK FORM -->
 
-<div ng-show="!isEditForm" class="form-content">
+<div ng-show="!isEditForm" class="form-content book-form">
   <div class="form-header">
-    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-    <h1 class="modal-title">Add a New Book</h1>
+    <h1 class="modal-title">New Book</h1>
   </div>
   <div class="form-body">
     <form class="create-form" role="form" ng-cancel="" ng-submit="createBook(newBook)">
@@ -73,8 +72,7 @@
         <div rating-star-directive rating="{{book.rating}}" id="newBookRating" ng-model="rating" max="5" on-rating-select="rateBook(rating)"></div>
       </div>
 
-      <!--<a href="#/library"><button type="submit" class="btn modal-btn">Create</button></a>-->
-      <!--<button type="cancel" class="btn modal-btn modal-btn-cancel">Cancel</button>-->
+      <button ng-click="cancelForm()" type="reset" class="btn form-btn-cancel">Cancel</button>
       <button type="submit" class="btn modal-btn form-btn">Create</button>
     </form>
     <br>

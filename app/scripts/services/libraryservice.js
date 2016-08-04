@@ -100,7 +100,7 @@ angular.module('yeomanAngularTutorialApp')
       }
 
     ];
-    
+
     var author = {};
 
     this.getBooks = function () {

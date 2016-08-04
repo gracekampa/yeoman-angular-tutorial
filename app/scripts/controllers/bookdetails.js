@@ -31,8 +31,10 @@ angular.module('yeomanAngularTutorialApp')
     }
 
     function selectBook(book) {
-
-      $location.url("/book/add/" + book.id);
-
+      $location.url("/book/edit/" + book.id);
+      $scope.editBook = angular.copy(book);
+      $scope.rating = $scope.book.rating;
+      console.log($scope.editBook);
     }
+
   });

@@ -25,11 +25,13 @@ angular.module('yeomanAngularTutorialApp')
 
     $scope.editBook = editBook;
     $scope.createBook = createBook;
+    $scope.cancelForm = cancelForm;
 
     function init() {
       if ($routeParams.bookId) {
         $scope.isEditForm = true;
         $scope.rating = $scope.book.rating;
+        $scope.book = angular.copy($scope.book);
       }
     }
     init();
@@ -40,6 +42,8 @@ angular.module('yeomanAngularTutorialApp')
       console.log(book.rating);
 
       libraryService.editBook(book);
+      console.log("before url change" );
+      $location.url("/book/" + book.id);
 
       if ($scope.isSorted) {
         sortBooks();
@@ -48,15 +52,11 @@ angular.module('yeomanAngularTutorialApp')
         $scope.isSorted = false;
       }
 
-      $location.url("/book/edit/" + book.id);
-
       // $('#editBook').modal('hide');
       // resetEditForm();
     }
 
     function createBook(newBook) {
-      console.log("inside create");
-      console.log(newBook);
       newBook.rating = $scope.rating;
       newBook.order = $scope.books.length;
       newBook.id = new Date().getUTCMilliseconds();
@@ -74,6 +74,15 @@ angular.module('yeomanAngularTutorialApp')
       }
 
       $location.url("/book/edit/" + newBook.id);
+    }
+
+    function cancelForm() {
+      if (!($scope.isEditForm)) {
+        $location.url("/books");
+      }
+      if ($scope.isEditForm) {
+        $location.url("/book/" + $scope.book.id);
+      }
     }
 
   });

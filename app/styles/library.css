@@ -9,6 +9,13 @@ button {
   outline: none !important;
 }
 
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
 h1 {
   font-weight: bold;
 }
@@ -62,12 +69,6 @@ h2 {
 .sort-btn {
   margin-bottom: 13px;
   margin-left: 15px;
-}
-
-.modal-btn:hover {
-  background-color: #d6be4f;
-  border-color: #d6be4f;
-  color: #fafbfc;
 }
 
 .all-books-header {
@@ -291,25 +292,60 @@ a .books {
  ** FORMS STYLING
  **/
 
+.book-form {
+  background-color: white;
+  padding: 30px 40px;
+}
+
 .form-header {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
   margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+input {
+  box-shadow: none!important;
+  border-radius: 0px;
 }
 
 .form-btn {
   /*float: right;*/
 }
 
-.modal-btn-cancel {
-  background-color: red;
+.form-btn-cancel {
+   background-color: #d2d2d2;
+   border-color: #d2d2d2;
+   margin-top: 20px;
+}
+
+.form-btn-cancel a {
+  color: white;
+}
+
+.form-btn-cancel:hover {
+  background-color: grey;
+  border-color: grey;
 }
 
 .modal-title {
   font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.modal-btn {
+  margin-top: 20px;
+  float: right;
+}
+
+.modal-btn:hover {
+  background-color: #d6be4f;
+  border-color: #d6be4f;
+  color: #fafbfc;
 }
 
 label {
   display: block;
+  font-weight: 400;
 }
 
 /**
