@@ -19,13 +19,12 @@
         </p>
         <p class="book-details-text-author">by {{book.author}}</p>
         <br>
-        <p>The Great Gatsby is a story told by Nick Carraway, who was once Gatsby's neighbor, and he tells the story sometime after 1922,
-          when the incidents that fill the book take place. As the story opens, Nick has just moved from the Midwest to West Egg, Long Island,
-          seeking his fortune as a bond salesman.</p>
-        <rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
+        <p>{{book.description}}</p>
+        <!--<rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>-->
         <div class="book-details-footer">
           <span class="books-publish-date">Published: {{book.publishDate | date}}</span>
           <span class="books-pages">Pages: {{book.pages}}</span>
+          <rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>
         </div>
       </div>
     </div>

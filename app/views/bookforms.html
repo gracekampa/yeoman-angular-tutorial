@@ -15,6 +15,10 @@
         <input type="text" class="form-control" id="bookAuthor" ng-model="book.author" required>
       </div>
       <div class="form-group">
+        <label for="bookDescription">Description</label>
+        <textarea type="text" class="form-control" id="bookDescription" ng-model="book.description" required></textarea>
+      </div>
+      <div class="form-group">
         <label for="bookPages">Pages</label>
         <input type="number" class="form-control" id="bookPages" ng-model="book.pages" required>
       </div>
@@ -54,6 +58,10 @@
       <div class="form-group">
         <label for="bookAuthor">Author</label>
         <input type="text" class="form-control" id="newBookAuthor" ng-model="newBook.author" required>
+      </div>
+      <div class="form-group">
+        <label for="newBookDescription">Description</label>
+        <textarea type="text" class="form-control" id="newBookDescription" ng-model="newBook.description" required></textarea>
       </div>
       <div class="form-group">
         <label for="newBookPages">Pages</label>

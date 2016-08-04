@@ -256,9 +256,9 @@ a .books {
 }
 
 .book-details-rating {
-  margin-bottom: 40px;
-  bottom: 0;
-  position: absolute;
+  margin-bottom: 30px;
+  /*bottom: 0;*/
+  /*position: absolute;*/
 }
 
 .book-details-rating ul {
@@ -281,11 +281,10 @@ a .books {
 }
 
 .book-details-footer {
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  height: 30px;
+  position: absolute;
+  bottom: 0;
   width: inherit;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /**

@@ -42,7 +42,6 @@ angular.module('yeomanAngularTutorialApp')
       console.log(book.rating);
 
       libraryService.editBook(book);
-      console.log("before url change" );
       $location.url("/book/" + book.id);
 
       if ($scope.isSorted) {
@@ -63,6 +62,8 @@ angular.module('yeomanAngularTutorialApp')
 
       libraryService.createBook(newBook);
 
+      $location.url("/book/" + newBook.id);
+
       // $('#createBook').modal('hide');
       // resetCreateForm();
 
@@ -73,7 +74,6 @@ angular.module('yeomanAngularTutorialApp')
         $scope.isSorted = false;
       }
 
-      $location.url("/book/edit/" + newBook.id);
     }
 
     function cancelForm() {
