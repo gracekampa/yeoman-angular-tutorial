@@ -99,6 +99,18 @@ a .books {
   font-size: 25px;
 }
 
+.books-title,
+.books-author {
+  text-decoration: none;
+  color: #333333;
+}
+
+.books-title:hover,
+.books-author:hover {
+  text-decoration: none;
+  color: #e0cd78;
+}
+
 .books-text {
   width: 400px;
   padding: 10px 15px 20px 20px;
@@ -345,6 +357,24 @@ input {
 label {
   display: block;
   font-weight: 400;
+}
+
+/**
+ ** AUTHORS DETAILS
+ **/
+
+.author-details-text-nationality {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.author-details-text-author {
+  font-weight: bolder;
+  color: #e0cd78;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin: 15px 0 0 0;
 }
 
 /**

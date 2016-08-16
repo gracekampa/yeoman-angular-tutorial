@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="details-title">{{bookAuthor.name}}/ Biography</h2>
+  <div class="row">
+    <div class="details">
+      <div class="col-sm-6 book-details book-details-cover" ng-style="{'background-image':'url('+bookAuthor.photo+')'}">
+
+      </div>
+      <div class="col-sm-6 book-details book-details-text">
+        <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
+        <p class="author-details-text-author">
+          {{bookAuthor.name}}
+          <!--<span ng-click="selectBook(book)" class="glyphicon glyphicon-pencil edit-book"></span>-->
+        </p>
+        <p class="author-details-text-nationality">{{bookAuthor.nationality}} Author</p>
+        <br>
+        <p>{{bookAuthor.bio}}</p>
+        <!--<rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>-->
+        <div class="book-details-footer">
+          <span class="books-publish-date">{{bookAuthor.dob | date}} – {{bookAuthor.dod | date}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

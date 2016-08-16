@@ -43,7 +43,7 @@
             <ul class="nav navbar-nav">
               <li ng-class="{'active' : main.$location.url().indexOf('home') != -1}"><a href="#/home">Home</a></li>
               <li ng-class="{'active' : main.$location.url().indexOf('books') != -1}"><a ng-href="#/books">Books</a></li>
-              <li ng-class="{'active' : main.$location.url().indexOf('about') != -1}"><a ng-href="#/about">Authors</a></li>
+              <li ng-class="{'active' : main.$location.url().indexOf('author') != -1}"><a ng-href="#/author">Authors</a></li>
               <!--<li ng-class="{'active' : main.$location.url().indexOf('bookForms') != -1}">-->
                 <!--<a ng-href="#/bookForms">-->
                   <!--<span class="glyphicon glyphicon-plus"></span>-->
@@ -114,6 +114,7 @@
         <script src="scripts/services/libraryservice.js"></script>
         <script src="scripts/controllers/bookdetails.js"></script>
         <script src="scripts/controllers/bookforms.js"></script>
+        <script src="scripts/controllers/authordetails.js"></script>
         <!-- endbuild -->
 </body>
 </html>

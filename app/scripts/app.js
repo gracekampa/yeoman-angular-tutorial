@@ -59,6 +59,16 @@ angular
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'
       })
+      .when('/author', {
+        templateUrl: 'views/authordetails.html',
+        controller: 'AuthorCtrl',
+        controllerAs: 'author'
+      })
+      .when('/author/:bookId', {
+        templateUrl: 'views/authordetails.html',
+        controller: 'AuthorCtrl',
+        controllerAs: 'author'
+      })
       .otherwise({
         redirectTo: '/home'
       });

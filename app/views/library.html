@@ -30,12 +30,12 @@
         <a href="#/book/{{book.id}}">
           <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
             <div class="books-text">
-              <!--<button ng-click="deleteBook(book)" type="button" class="close">&times;</button>-->
               <p class="books-title">
                 {{book.title}} {{book.order}}
-                <!--<span ng-click="selectBook(book)" data-toggle="modal" data-target="#editBook" class="glyphicon glyphicon-pencil editBook"></span>-->
               </p>
-              <p class="books-author">by {{book.author}}</p>
+              <a href="#/author/{{book.author.id}}">
+                <p class="books-author">by {{book.author.name}}</p>
+              </a>
               <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive>
               <!--<span class="books-publish-date">Published: {{book.publishDate | date}}</span>-->
               <!--<span class="books-pages">Pages: {{book.pages}}</span>-->
@@ -50,7 +50,7 @@
 
       <div class="authors" ng-repeat="author in authorsList">
         <div class="authors-title">
-          <p class="authors-author">{{author[0].author}} </p>
+          <p class="authors-author">{{author[0].author.name}} </p>
           <span class="book-count">({{author.length}} available)</span>
         </div>
         <div ng-repeat="book in author | orderBy: 'title'">
