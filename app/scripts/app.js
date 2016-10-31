@@ -39,17 +39,17 @@ angular
         controller: 'LibraryCtrl',
         controllerAs: 'library'
       })
-      .when('/book', {
-        templateUrl: 'views/bookdetails.html',
-        controller: 'BookdetailsCtrl',
-        controllerAs: 'bookDetails'
-      })
+      // .when('/book', {
+      //   templateUrl: 'views/bookdetails.html',
+      //   controller: 'BookdetailsCtrl',
+      //   controllerAs: 'bookDetails'
+      // })
       .when('/book/:bookId', {
         templateUrl: 'views/bookdetails.html',
         controller: 'BookdetailsCtrl',
         controllerAs: 'bookDetails'
       })
-      .when('/bookForms', {
+      .when('/book', {
         templateUrl: 'views/bookforms.html',
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'
@@ -59,15 +59,30 @@ angular
         controller: 'BookformsCtrl',
         controllerAs: 'bookForms'
       })
-      .when('/author', {
+      // .when('/author', {
+      //   templateUrl: 'views/authordetails.html',
+      //   controller: 'AuthorCtrl',
+      //   controllerAs: 'author'
+      // })
+      .when('/author/:authorId', {
         templateUrl: 'views/authordetails.html',
+        controller: 'AuthorDetailsCtrl',
+        controllerAs: 'author'
+      })
+      .when('/authors', {
+        templateUrl: 'views/authors.html',
         controller: 'AuthorCtrl',
         controllerAs: 'author'
       })
-      .when('/author/:bookId', {
-        templateUrl: 'views/authordetails.html',
-        controller: 'AuthorCtrl',
-        controllerAs: 'author'
+      .when('/author', {
+        templateUrl: 'views/authorforms.html',
+        controller: 'AuthorformsCtrl',
+        controllerAs: 'authorForms'
+      })
+      .when('/author/edit/:authorId', {
+        templateUrl: 'views/authorforms.html',
+        controller: 'AuthorformsCtrl',
+        controllerAs: 'authorForms'
       })
       .otherwise({
         redirectTo: '/home'

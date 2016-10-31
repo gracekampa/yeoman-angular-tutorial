@@ -13,6 +13,13 @@ angular.module('yeomanAngularTutorialApp')
     $scope.bookId = $routeParams.bookId;
 
     $scope.book = libraryService.findBook($scope.bookId);
+    // console.log($scope.book);
+    if (typeof $scope.book.author == "number") {
+      $scope.book.author = libraryService.findAuthor($scope.book.author);
+    }
+    if (typeof $scope.book.author == "object") {
+      $scope.book.author = libraryService.findAuthor($scope.book.author.id);
+    }
 
     $scope.selectBook = selectBook;
     $scope.deleteBook = deleteBook;
@@ -34,7 +41,7 @@ angular.module('yeomanAngularTutorialApp')
       $location.url("/book/edit/" + book.id);
       $scope.editBook = angular.copy(book);
       $scope.rating = $scope.book.rating;
-      console.log($scope.editBook);
+      // console.log($scope.editBook);
     }
 
   });

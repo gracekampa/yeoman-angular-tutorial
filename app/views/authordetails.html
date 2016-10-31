@@ -6,10 +6,10 @@
 
       </div>
       <div class="col-sm-6 book-details book-details-text">
-        <button ng-click="deleteBook(book)" type="button" class="close">&times;</button>
+        <button ng-click="deleteAuthor(bookAuthor)" type="button" class="close">&times;</button>
         <p class="author-details-text-author">
           {{bookAuthor.name}}
-          <!--<span ng-click="selectBook(book)" class="glyphicon glyphicon-pencil edit-book"></span>-->
+          <span ng-click="selectAuthor(bookAuthor)" class="glyphicon glyphicon-pencil edit-book"></span>
         </p>
         <p class="author-details-text-nationality">{{bookAuthor.nationality}} Author</p>
         <br>
@@ -21,4 +21,29 @@
       </div>
     </div>
   </div>
+
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div>
+        <div class="books-container" ng-repeat="book in bookAuthor.books | orderBy: 'book.title'">
+          <div class="demo-card-square mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand" ng-style="{'background-image':'url('+book.cover+')'}">
+              <!--<h2 class="mdl-card__title-text">{{book.title}}</h2>-->
+            </div>
+            <div class="mdl-card__supporting-text">
+              <a href="#/book/{{book.id}}">
+                <p class="books-title">
+                  {{book.title}}
+                </p>
+              </a>
+              <p class="books-author">by {{bookAuthor.name}}</p>
+              <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

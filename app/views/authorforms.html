@@ -1,0 +1,97 @@
+<!-- CREATE AUTHOR FORM -->
+
+<div ng-show="!isEditForm" class="form-content book-form">
+  <div class="form-header">
+    <h1 class="modal-title">New Author</h1>
+  </div>
+  <div class="form-body">
+    <form class="create-form" role="form" ng-cancel="" ng-submit="createAuthor(newAuthor)">
+      <div class="form-group">
+        <label for="newAuthorName">Name</label>
+        <input name="title" type="text" class="form-control" id="newAuthorName" ng-model="newAuthor.name" required>
+      </div>
+      <div class="form-group">
+        <label for="newAuthorNationality">Nationality</label>
+        <input name="title" type="text" class="form-control" id="newAuthorNationality" ng-model="newAuthor.nationality" required>
+      </div>
+      <div class="form-group">
+        <label for="newAuthorBio">Description</label>
+        <textarea type="text" class="form-control" id="newAuthorBio" ng-model="newAuthor.bio" required></textarea>
+      </div>
+      <div class="row form-group">
+        <div class="col-xs-5">
+          <label for="newAuthorDOB">Date of Birth</label>
+          <input id="newAuthorDOB" ng-model="newAuthor.dob" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+        </div>
+        <div class="col-xs-5">
+          <label for="newAuthorDOD">Deceased</label>
+          <input id="newAuthorDOD" ng-model="newAuthor.dod" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+        </div>
+        <div class="col-xs-2">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Still alive
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="newAuthorPhoto">Author Photo URL</label>
+        <input type="url" class="form-control" id="newAuthorPhoto" ng-model="newAuthor.photo" required>
+      </div>
+
+      <button ng-click="cancelForm()" type="reset" class="btn form-btn-cancel">Cancel</button>
+      <button type="submit" class="btn modal-btn form-btn">Create</button>
+    </form>
+    <br>
+    <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+  </div>
+</div>
+
+<!-- EDIT AUTHOR FORM -->
+
+<div ng-show="isEditForm" class="form-content book-form">
+  <div class="form-header">
+    <h1 class="modal-title">Edit Author</h1>
+  </div>
+  <div class="form-body">
+    <form class="create-form" role="form" ng-cancel="" ng-submit="editAuthor(author)">
+      <div class="form-group">
+        <label for="editAuthorName">Name</label>
+        <input name="title" type="text" class="form-control" id="editAuthorName" ng-model="author.name" required>
+      </div>
+      <div class="form-group">
+        <label for="editAuthorNationality">Nationality</label>
+        <input name="title" type="text" class="form-control" id="editAuthorNationality" ng-model="author.nationality" required>
+      </div>
+      <div class="form-group">
+        <label for="editAuthorBio">Description</label>
+        <textarea type="text" class="form-control" id="editAuthorBio" ng-model="author.bio" required></textarea>
+      </div>
+      <div class="row form-group">
+        <div class="col-xs-5">
+          <label for="editAuthorDOB">Date of Birth</label>
+          <input id="editAuthorDOB" ng-model="author.dob" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+        </div>
+        <div class="col-xs-5">
+          <label for="editAuthorDOD">Deceased</label>
+          <input id="editAuthorDOD" ng-model="author.dod" class="form-control" type="date" max="{{today | date:'yyyy-MM-dd'}}" required>
+        </div>
+        <div class="col-xs-2">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Still alive
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="editAuthorPhoto">Author Photo URL</label>
+        <input type="url" class="form-control" id="editAuthorPhoto" ng-model="author.photo" required>
+      </div>
+
+      <button ng-click="cancelForm()" type="reset" class="btn form-btn-cancel">Cancel</button>
+      <button type="submit" class="btn modal-btn form-btn">Save</button>
+    </form>
+    <br>
+    <div ng-show="message" class="alert alert-danger" role="alert">{{message}}</div>
+  </div>
+</div>

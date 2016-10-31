@@ -1,11 +1,5 @@
 <div class="container">
   <h2 class="details-title">{{book.title}} / Details</h2>
-  <!--<a href="#/bookForms" class="create-book">-->
-    <!--<button type="button" class="btn btn-link details-create-book-btn">-->
-      <!--<span class="glyphicon glyphicon-plus"></span>-->
-      <!--Add a book!-->
-    <!--</button>-->
-  <!--</a>-->
   <div class="row">
     <div class="details">
       <div class="col-sm-6 book-details book-details-cover" ng-style="{'background-image':'url('+book.cover+')'}">
@@ -17,7 +11,7 @@
           {{book.title}}
           <span ng-click="selectBook(book)" class="glyphicon glyphicon-pencil edit-book"></span>
         </p>
-        <p class="book-details-text-author">by {{book.author.name}}</p>
+        <a href="#/author/{{book.author.id}}"><p class="book-details-text-author">by {{book.author.name}}</p></a>
         <br>
         <p>{{book.description}}</p>
         <!--<rating-star-directive class="book-details-rating" rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive><br>-->

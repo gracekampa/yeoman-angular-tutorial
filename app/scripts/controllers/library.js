@@ -11,6 +11,7 @@ angular.module('yeomanAngularTutorialApp')
   .controller('LibraryCtrl', function ($scope, libraryService) {
 
     $scope.books = libraryService.getBooks();
+    $scope.authorsList = libraryService.getAuthors();
 
 
     $scope.newBook = {};
@@ -31,7 +32,6 @@ angular.module('yeomanAngularTutorialApp')
       $scope.rating = rating;
     };
 
-    $scope.authorsList = [];
     $scope.createBook = createBook;
     $scope.resetCreateForm = resetCreateForm;
     $scope.deleteBook = deleteBook;
@@ -41,12 +41,14 @@ angular.module('yeomanAngularTutorialApp')
     $scope.sortBooks = sortBooks;
     $scope.selectBook = selectBook;
     $scope.editBook = editBook;
+    // $scope.setAuthorsBookList = setAuthorsBookList;
 
     function init() {
       $scope.isSorted = true;
       setAuthorsList();
       setBooksList();
       setBookListOrder();
+      // setAuthorsBookList();
     }
     init();
 
@@ -60,9 +62,17 @@ angular.module('yeomanAngularTutorialApp')
     }
 
     function setAuthorsList() {
-      $scope.authorsList =_.sortBy($scope.books, 'author');
-      $scope.authorsList =_.groupBy($scope.authorsList, 'author');
-
+      for (var i = 0; i < $scope.books.length; i++) {
+        var book = $scope.books[i];
+        console.log(typeof book.author);
+        if (typeof book.author == "number") {
+          book.author = libraryService.findAuthor(book.author);
+        }
+        if (typeof book.author == "object") {
+          book.author = libraryService.findAuthor(book.author.id);
+        }
+        console.log(book);
+      }
     }
 
     function setBookListOrder() {
@@ -80,13 +90,15 @@ angular.module('yeomanAngularTutorialApp')
     }
 
     $scope.$watch('books', function(value) {
-      setAuthorsList(value);
+      // setAuthorsList(value);
       setBooksList(value);
+      // setAuthorsBookList(value);
     }, true);
 
     $scope.$watch('sortedBooksList', function(value) {
       // setAuthorsList(value);
       setBooksList(value);
+      // setAuthorsBookList(value);
 
       $scope.sortedBooksList = _.sortBy($scope.books, 'order');
       if (_.isEqual($scope.sortedBooksList, $scope.idealSortedBookList)) {
@@ -163,6 +175,14 @@ angular.module('yeomanAngularTutorialApp')
       $scope.book = angular.copy(book);
       $scope.rating = $scope.book.rating;
     }
+
+    // function setAuthorsBookList() {
+    //   for (var i = 0; i < $scope.books.length - 1; i++) {
+    //     var author = $scope.books[i].author;
+    //     var authorId = $scope.books[i].author.id;
+    //     author.AuthorBooks = libraryService.getAuthorBooks(authorId);
+    //   }
+    // }
 
     // function editBook(book) {
     //   book.rating = $scope.rating;

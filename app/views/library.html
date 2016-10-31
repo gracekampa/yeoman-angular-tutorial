@@ -1,64 +1,59 @@
-<div class="welcome-header">
-  <!--<h1>Welcome to your library!</h1>-->
-  <!--<p class="subtitle">-->
-    <!--Feel free to browse, create, or delete!-->
-  <!--</p>-->
-
-  <!--<a href="#/bookForms" class="create-book">-->
-    <!--<button type="button" class="btn btn-link create-book-btn">-->
-      <!--<span class="glyphicon glyphicon-plus"></span>-->
-      <!--New Book-->
-    <!--</button>-->
-  <!--</a>-->
-
-</div>
-
-
   <div class="row">
-    <div class="col-lg-6">
-      <div class="all-books-header">
+    <div class="col-lg-12">
+      <div class="welcome-header">
         <h2>All books</h2>
         <button class="btn sort-btn" ng-disabled="isSorted" ng-click="sortBooks()">Sort by Publish Date</button>
       </div>
-      <div ng-repeat="book in sortedBooksList | orderBy: 'order'">
-        <div class="books-reorder">
+
+      <div>
+        <div class="books-container" ng-repeat="book in sortedBooksList | orderBy: 'order'">
+          <div class="books-reorder-mobile">
           <span ng-click="book.order != 0 && moveOrder(book, true)"
                 ng-class="{'text-muted': book.order == 0}" class="glyphicon glyphicon-chevron-up"></span>
           <span ng-click="book.order <= sortedBooksList.length - 1 && moveOrder(book, false)"
                 ng-class="{'text-muted': book.order >= sortedBooksList.length - 1}" class="glyphicon glyphicon-chevron-down"></span>
-        </div>
-        <a href="#/book/{{book.id}}">
-          <div class="books" ng-style="{'background-image':'url('+book.cover+')'}">
-            <div class="books-text">
-              <p class="books-title">
-                {{book.title}} {{book.order}}
-              </p>
+          </div>
+          <div class="demo-card-square mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand" ng-style="{'background-image':'url('+book.cover+')'}">
+              <!--<h2 class="mdl-card__title-text">{{book.title}}</h2>-->
+            </div>
+            <div class="mdl-card__supporting-text">
+              <a href="#/book/{{book.id}}">
+                <p class="books-title">
+                  {{book.title}}
+                </p>
+              </a>
               <a href="#/author/{{book.author.id}}">
                 <p class="books-author">by {{book.author.name}}</p>
               </a>
               <rating-star-directive rating="{{book.rating}}" ng-model="book.rating" readonly=true></rating-star-directive>
-              <!--<span class="books-publish-date">Published: {{book.publishDate | date}}</span>-->
-              <!--<span class="books-pages">Pages: {{book.pages}}</span>-->
             </div>
           </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-lg-6">
-      <h2>Authors</h2>
-
-      <div class="authors" ng-repeat="author in authorsList">
-        <div class="authors-title">
-          <p class="authors-author">{{author[0].author.name}} </p>
-          <span class="book-count">({{author.length}} available)</span>
-        </div>
-        <div ng-repeat="book in author | orderBy: 'title'">
-          <p>{{book.title}}</p>
-          <hr ng-if="!$last" />
+          <div class="books-reorder">
+          <span ng-click="book.order != 0 && moveOrder(book, true)"
+                ng-class="{'text-muted': book.order == 0}" class="glyphicon glyphicon-chevron-left"></span>
+          <span ng-click="book.order <= sortedBooksList.length - 1 && moveOrder(book, false)"
+                ng-class="{'text-muted': book.order >= sortedBooksList.length - 1}" class="glyphicon glyphicon-chevron-right pull-right"></span>
+          </div>
         </div>
       </div>
     </div>
+
+    <!--<div class="col-lg-6">-->
+      <!--<h2>Authors</h2>-->
+
+      <!--<div class="authors" ng-repeat="author in authorsList">-->
+        <!--<div class="authors-title">-->
+          <!--&lt;!&ndash;<p>{{sortedBooksList[0]}}</p>&ndash;&gt;-->
+          <!--<p class="authors-author">{{author.name}} </p>-->
+          <!--<span class="book-count">({{author.books.length}} available)</span>-->
+        <!--</div>-->
+        <!--<div ng-repeat="book in author.AuthorBooks">-->
+          <!--<p>{{book.title}}</p>-->
+          <!--<hr ng-if="!$last" />-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
 </div>

@@ -13,8 +13,9 @@
     .module("yeomanAngularTutorialApp")
     .controller("MainCtrl", MainCtrl);
 
-  function MainCtrl($location) {
+  function MainCtrl($location, $scope, libraryService) {
     var vm = this;
+    $scope.books = libraryService.getBooks();
 
     this.awesomeThings = [
       'HTML5 Boilerplate',
@@ -24,6 +25,8 @@
 
     function init() {
       vm.$location = $location;
+      console.log($scope.books);
+      console.log($scope.books.length);
     }
     init();
   }

@@ -16,6 +16,7 @@ angular.module('yeomanAngularTutorialApp')
     $scope.book = libraryService.findBook($scope.bookId);
 
     $scope.books = libraryService.getBooks();
+    $scope.authorsList = libraryService.getAuthors();
 
     $scope.rating = 3;
     $scope.isReadonly = true;
@@ -39,7 +40,7 @@ angular.module('yeomanAngularTutorialApp')
     function editBook(book) {
       console.log("inside edit");
       book.rating = $scope.rating;
-      console.log(book.rating);
+      console.log(book.author);
 
       libraryService.editBook(book);
       $location.url("/book/" + book.id);
@@ -59,10 +60,13 @@ angular.module('yeomanAngularTutorialApp')
       newBook.rating = $scope.rating;
       newBook.order = $scope.books.length;
       newBook.id = new Date().getUTCMilliseconds();
+      console.log(newBook);
 
       libraryService.createBook(newBook);
 
       $location.url("/book/" + newBook.id);
+      // $location.url("/book/123456");
+      console.log(newBook.id);
 
       // $('#createBook').modal('hide');
       // resetCreateForm();
